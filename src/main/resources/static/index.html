@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+		"http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" ng-app="bdaApplication">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Blood Disease Network</title>
+	<meta name="author" content="Antonio" />
+    <script src="./js/lib/jquery-3.3.1.min.js"></script>
+    <script src="./js/popper/popper.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+</head>
+<body class="bg-img">
+
+    <!--Loader-->
+    <div class="loader-overlay newfade-loader in" ng-show="!(semaphore == 0)">
+        <div class="custom-loader" loader-css="ball-clip-rotate-multiple"></div>
+    </div>
+
+    <!--Error messages, only need to update errors when want a popup message-->
+    <!--<div class="alert my-alert alert-danger newfade in" role="alert" ng-show="appErrors">-->
+        <!--<a class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+        <!--<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
+        <!--<span class="sr-only">Error: </span>-->
+        <!--{{appErrors}}-->
+
+        <!--<script type="text/javascript">-->
+            <!--window.setTimeout(function() {-->
+                <!--$(".my-alert").fadeTo(500, 0).slideUp(500, function(){-->
+                    <!--$(this).remove();-->
+                <!--});-->
+            <!--}, 5000);-->
+        <!--</script>-->
+    <!--</div>-->
+
+    <div class="app-body" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#!/main" ng-show="authenticated">
+                <img src='images/bdn.png' class="app-brand"/>
+            </a>
+            <a class="navbar-brand" href="#!/" ng-show="!authenticated">
+                <img src='images/bdn.png' class="app-brand"/>
+            </a>
+            <button id="togglerButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" ng-show="authenticated && userRole === 'USER'">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownCard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Create Medical Record
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownCard">
+                            <a class="dropdown-item" ng-href="#!/main">MDS</a>
+                            <a class="dropdown-item" ng-href="#!/main">Myeloma</a>
+                            <a class="dropdown-item" ng-href="#!/main">Lymphoma</a>
+                            <a class="dropdown-item" ng-href="#!/medical-record-cll/4/add">CLL</a>
+                            <a class="dropdown-item" ng-href="#!/medical-record-myelo/5/add">Myeloproliferative</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownSearch" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Search
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSearch">
+                            <a class="dropdown-item" ng-href="#!/main">Name</a>
+                            <a class="dropdown-item" ng-href="#!/main">Title</a>
+                            <a class="dropdown-item" ng-href="#!/main">Medical Record</a>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-auto" ng-show="authenticated && userRole === 'ADMIN'">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administrator Tools
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarAdmin">
+                            <li><a class="dropdown-item dropdown-toggle" href="#">Hospital</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" ng-href="#!/hospital/add">Add</a></li>
+                                    <li><a class="dropdown-item" ng-href="#!/hospital/list">Update/Remove</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item dropdown-toggle" href="#">User</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" ng-href="#!/user/add">Add</a></li>
+                                    <li><a class="dropdown-item" ng-href="#!/user/list">Update/Remove</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" ng-href="#!/option">Options</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav" ng-show="authenticated && load">
+                    <li class="nav-item" style="margin-right: 15px;">
+                        <button type="button" class="btn app-profile" data-container="body" data-html="true" data-toggle="popover" data-placement="bottom"
+                                data-trigger="focus" title="Logged user"
+                                data-content="
+                                              <div class='row'>
+                                                <div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                                                  <img src='images/profile.png' class='app-profile-img'/>
+                                                </div>
+                                                <div class='col-lg-8 col-md-8 col-sm-12 col-xs-12 app-username'>
+                                                   <span> {{userName}} </span>
+                                                </div>
+                                              </div>
+                                              <hr/>
+                                              <div class='row app-center' style'margin-top: 10px;'>
+                                                 <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                                   <span> Other registered user info </span>
+                                                 </div>
+                                              </div>
+                                              <hr/>
+                                              <div class='app-center'>
+                                                <a href='#!/logout' class='btn btn-danger navbar-btn' role='button'>Logout</a>
+                                              </div>
+                                            ">
+                            <img src='images/profile.png' class='app-profile-img'/>
+                        </button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto" ng-show="!authenticated && load">
+                </ul>
+                <ul class="navbar-nav" ng-show="!authenticated && load">
+                    <li class="nav-item">
+                        <a href="#!/" class="btn navbar-btn app-btn-color" role="button">
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <script type="text/javascript">
+            // var explode = function(){
+            //     $( ".app-container" ).css('top', $('.navbar').outerHeight(true));
+            // };
+
+            $(function () {
+                $('[data-toggle="popover"]').popover();
+                $('.app-body').css('display','inherit');   // to avoid a visual bug that load everything altogether
+                // $( "#togglerButton" ).click(function() {
+                //     console.log("Click");
+                //     setTimeout(explode, 300);
+                // });
+                //
+                // $( window ).resize(function() {
+                //     $( ".app-container" ).css('top', $('.navbar').outerHeight(true));
+                // });
+                // $(".btn-group, .dropdown").hover(
+                //     function () {
+                //         $('>.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                //         $(this).addClass('open');
+                //     },
+                //     function () {
+                //         $('>.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                //         $(this).removeClass('open');
+                //     });
+            })
+        </script>
+        <div ng-view></div>
+    </div>
+
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600,700' type='text/css'/>
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" />
+
+	<link rel="stylesheet" href="./css/login.css"/>
+	<link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/app.css"/>
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-4-navbar.css"/>
+    <link rel="stylesheet" href="./js/angularjs/table/ng-table.min.css"/>
+
+    <!--ICONIC ICONS-->
+    <link rel="stylesheet" href="./font/css/open-iconic-bootstrap.css"/>
+
+    <!--LOADERS-->
+    <link rel="stylesheet" href="./css/lib/loaders.min.css"/>
+
+    <!--JS LIB-->
+	<script src="./js/angularjs/angular.js"></script>
+	<script src="./js/angularjs/angular-route.js"></script>
+	<script src="./js/angularjs/angular-resource.js"></script>
+    <script src="./js/angularjs/angular-animate.js"></script>
+    <script src="./js/angularjs/table/ng-table.min.js"></script>
+    <script src="./js/lib/angular-loaders.min.js"></script>
+    <script src="./js/bootstrap/bootstrap-4-navbar.js"></script>
+    <script src="./js/chartjs/Chart.js"></script>
+    <script src="./js/chartjs/angular-chart.js"></script>
+    <script src="./js/angularjs/angular-idle.min.js"></script>
+    <script src="./js/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+    <!--JS FILES-->
+	<script src="./js/app.js"></script>
+    <script src="./js/util.js"></script>
+	<script src="./js/register.js"></script>
+	<script src="./js/login.js"></script>
+	<script src="./js/main.js"></script>
+    <script src="./js/hospital.js"></script>
+    <script src="./js/user.js"></script>
+    <script src="./js/myelo.js"></script>
+    <script src="./js/cll.js"></script>
+    <script src="./js/options.js"></script>
+
+    <!--DIRECTIVES-->
+    <script src="./js/directives/pie-chart/bdnPieChartController.js"></script>
+    <script src="./js/directives/pie-chart/bdnPieChartDirective.js"></script>
+    <script src="./js/directives/line-chart/bdnLineChartController.js"></script>
+    <script src="./js/directives/line-chart/bdnLineChartDirective.js"></script>
+    <script src="./js/directives/bar-chart/bdnBarChartController.js"></script>
+    <script src="./js/directives/bar-chart/bdnBarChartDirective.js"></script>
+    <script src="./js/directives/popoverDirective.js"></script>
+
+    <!-- Generic modal -->
+    <div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="modalUserTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title app-color" id="modalUserTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="modalUserBody" class="modal-body app-color">
+                </div>
+                <div class="modal-footer app-center" style="display: block;">
+                    <button id="modalCloseButton" type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale di timeout -->
+    <div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="modalInfoTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header alert-warning">
+                    <h3>Your session is about to expire for inactivity</h3>
+                </div>
+                <div id="modalInfoBody" class="modal-body app-color" idle-countdown="countdown" ng-init="max = countdown">
+                    <p>You will be logged out in <span class="label label-warning">{{countdown}}</span> <span ng-pluralize="" count="countdown" when="{'one': 'second', 'other': 'seconds' }"></span></p>
+                    <uib-progressbar max="30" value="countdown" animate="true" class="progress-striped active" type="warning"></uib-progressbar>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale di logout -->
+    <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modalLogoutTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header alert-danger">
+                    <h3>Session Expired!</h3>
+                </div>
+                <div id="modalLogoutBody" class="modal-body app-color" idle-countdown="countdown">
+                    <p>
+                        Logout for inactivity
+                    </p>
+                </div>
+                <div class="modal-footer app-center" style="display: block;">
+                    <button id="modalLogoutCloseButton" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

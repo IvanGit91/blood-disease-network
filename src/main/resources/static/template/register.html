@@ -1,0 +1,38 @@
+<div class="container-fluid app-container">
+    <div class="login-container">
+        <h1 align="center" class="app-header">USER REGISTRATION BLOOD DISEASES NETWORK</h1>
+        <div class="row justify-content-center app-center">
+            <div class="register-background">
+                <div class="m3-logo-container">
+                    <img src="./images/logo_bdn.png" class="img-responsive login-m3-logo centerE" alt="Responsive image">
+                </div>
+                <h3 class="login-header" style="color: #484c4d;text-align: center">Register to the Platform</h3>
+                <form ng-submit="sendRegisterData()">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name*" name="firstName" class="login-input centerE" id="name" required ng-model="user.firstName">
+                        <input type="text" name="lsatName" placeholder="Last Name*" class="login-input centerE" id="surname" required ng-model="user.lastName">
+                        <input type="email" name="email" placeholder="Email*" class="login-input centerE" id="email" required ng-model="user.email">
+                        <input type="text" name="usernameR" placeholder="Username*" class="login-input centerE" id="username" required ng-model="user.username">
+                        <input type="password" name="passwordR" placeholder="Password*" class="login-input centerE" id="password" required ng-model="user.password">
+                        <select class="login-input centerE" id="comboHospital"
+                                ng-change="getSelectedHospital()"
+                                ng-model="selectedHospital"
+                                ng-options="item.name for item in hospitals track by item.id"
+                                required>
+                            <option value="" class="app-color">-- Select a Hospital Structure --</option>
+                        </select>
+                        <input type="text" name="codice" placeholder="Registration Code*" class="login-input centerE" id="hospitalCode" required ng-model="user.hospitalCode">
+                        <button type="submit" name="submit" class="login-button centerE">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="login-footer">
+            <div class="row justify-content-center">
+                <div class='col'>
+                    <a href="https://ivanbattimiello.dev" target="_blank"><img src="./images/powered_by.png" class="img-responsive login-m3-logo centerE" alt="Responsive image"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

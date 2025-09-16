@@ -1,0 +1,30 @@
+<div id="followupBody" class="card-body" style="padding-bottom: 0;">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="followupDate">Date</label>
+            <input type="date" class="app-form-control" id="followupDate" placeholder="Insert date" ng-model="followup[0].date">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="followupExitus">Exitus</label>
+            <input type="text" class="app-form-control" id="followupExitus" placeholder="Insert exitus" ng-model="followup[0].exitus" maxlength="45">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="followupNumCycles">Cycles Number</label>
+            <input type="number" class="app-form-control" id="followupNumCycles" placeholder="Insert num cycles" ng-model="followup[0].numCycles">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="followupCausa">Cause</label>
+            <textarea type="textarea" cols="25" rows="4" class="app-form-control" id="followupCausa" placeholder="Insert cause" ng-model="followup[0].cause" maxlength="1000"></textarea>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="followupPatologyStatus">Patology Status</label>
+            <textarea name="textarea" id="followupPatologyStatus" cols="25" rows="4" class="app-form-control" placeholder="Insert pathology status" ng-model="followup[0].pathologyStatus" maxlength="1000"></textarea>
+        </div>
+    </div>
+</div>

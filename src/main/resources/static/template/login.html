@@ -1,0 +1,40 @@
+<div class="container-fluid app-container">
+    <div class="login-container" ng-show="load">
+        <h1 align="center" class="app-header">BLOOD DISEASES NETWORK</h1>
+        <div class="row justify-content-center app-center">
+            <div class="login-background">
+                <div class="m3-logo-container">
+                    <img src="./images/logo_bdn.png" class="img-responsive login-m3-logo centerE" alt="Responsive image">
+                </div>
+                <h3 class="login-header" style="color: #484c4d;text-align: center">Sign in to Platform</h3>
+                <form ng-submit="loginUser()">
+                    <div class="form-group">
+
+                        <input type="text" placeholder="Enter username" name="username" class="login-input centerE" id="username" required ng-model="credentials.username">
+                        <input type="password" name="password" placeholder="Enter password" class="login-input centerE" id="password" required ng-model="credentials.password">
+
+                        <label style="margin: 0"> <input style="margin-top: 15px;" type="checkbox" name="remember" data-ng-model="remember"> Remember Me </label>
+
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+                        <button id="loginSubmitBtn" type="submit" name="submit" class="login-button centerE">Sign in</button>
+                        <div class="row" style="padding-bottom: 20px;">
+                            <a href="#!/register" class="login-button centerE" role="button">Register</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="alert alert-danger" ng-show="loginerror">Login error</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="login-footer">
+        <div class="row justify-content-center">
+            <div class="col">
+                <a href="https://ivanbattimiello.dev" target="_blank"><img src="./images/powered_by.png" class="img-responsive login-m3-logo centerE" alt="Responsive image"></a>
+            </div>
+        </div>
+    </div>
+
+</div>
