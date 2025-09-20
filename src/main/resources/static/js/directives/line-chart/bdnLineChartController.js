@@ -1,4 +1,3 @@
-
 angular.module('bdaApplication').controller("BdnLineChartController", BdnLineChartController);
 
 function BdnLineChartController($scope, $window, $location, $http) {
@@ -7,9 +6,9 @@ function BdnLineChartController($scope, $window, $location, $http) {
     // console.log($scope.labels);
     $(function () {
     });
-    $scope.data1 = [[30, 50, 110, 80, 60, 50],[0, 60, 90, 180, 120, 150]];
+    $scope.data1 = [[30, 50, 110, 80, 60, 50], [0, 60, 90, 180, 120, 150]];
     $scope.labels1 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-    $scope.colorz = ['#00ff00','#ff0000'];
+    $scope.colorz = ['#00ff00', '#ff0000'];
     $scope.dataset = [{
         label: 'Left dataset',
         fill: false,
@@ -32,11 +31,11 @@ function BdnLineChartController($scope, $window, $location, $http) {
         },
         scales: {
             xAxes: [{
-                ticks:{
+                ticks: {
                     fontColor: "#ffffff"
                 }
             }],
-                yAxes: [{
+            yAxes: [{
                 id: 'left-y-axis',
                 type: 'linear',
                 position: 'left',

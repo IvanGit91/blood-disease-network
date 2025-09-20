@@ -1,7 +1,4 @@
-app.controller('mainController', function($rootScope, $scope, $http, $location, Idle) {
-
-    // $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    // $scope.data = [300, 500, 100];
+app.controller('mainController', function ($rootScope, $scope, $http, $location, Idle) {
 
     // Accessibility check if inserting the URL from browser
     checkLogin($rootScope, $http, $location);
@@ -11,25 +8,23 @@ app.controller('mainController', function($rootScope, $scope, $http, $location, 
         Idle.watch();
     });
 
-    function listWho(){
+    function listWho() {
         $http({
             method: 'GET',
             url: $rootScope.prefixDomain + 'medical-record/who2016/'
         }).then(function (response) {
             $scope.labels = [];
-            response.data.forEach(function(element) {
+            response.data.forEach(function (element) {
                 console.log(element);
-                if (element.description.split('(').length > 1){
+                if (element.description.split('(').length > 1) {
                     $scope.labels.push('(' + element.description.split('(')[1]);
                 } else {
                     $scope.labels.push(element.description);
                 }
-                // $scope.labels.push(element.description.split('(')[1].split(')')[0]);
-                // $scope.labels.push(element.description);
             });
             console.log($scope.labels);
             getJson();
-        }, function(err) {
+        }, function (err) {
             console.log(err);
         });
     }
@@ -47,7 +42,7 @@ app.controller('mainController', function($rootScope, $scope, $http, $location, 
         });
     }
 
-    $scope.titleName = ["MDS","Myeloma","Lymphoma","CLL","Myeloproliferative"];
+    $scope.titleName = ["MDS", "Myeloma", "Lymphoma", "CLL", "Myeloproliferative"];
     listWho();
 
 });

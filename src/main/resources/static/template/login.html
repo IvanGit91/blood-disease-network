@@ -4,22 +4,27 @@
         <div class="row justify-content-center app-center">
             <div class="login-background">
                 <div class="m3-logo-container">
-                    <img src="./images/logo_bdn.png" class="img-responsive login-m3-logo centerE" alt="Responsive image">
+                    <img alt="Responsive image" class="img-responsive login-m3-logo centerE"
+                         src="./images/logo_bdn.png">
                 </div>
                 <h3 class="login-header" style="color: #484c4d;text-align: center">Sign in to Platform</h3>
                 <form ng-submit="loginUser()">
                     <div class="form-group">
 
-                        <input type="text" placeholder="Enter username" name="username" class="login-input centerE" id="username" required ng-model="credentials.username">
-                        <input type="password" name="password" placeholder="Enter password" class="login-input centerE" id="password" required ng-model="credentials.password">
+                        <input class="login-input centerE" id="username" name="username" ng-model="credentials.username"
+                               placeholder="Enter username" required type="text">
+                        <input class="login-input centerE" id="password" name="password" ng-model="credentials.password"
+                               placeholder="Enter password" required type="password">
 
-                        <label style="margin: 0"> <input style="margin-top: 15px;" type="checkbox" name="remember" data-ng-model="remember"> Remember Me </label>
+                        <label style="margin: 0"> <input data-ng-model="remember" name="remember" style="margin-top: 15px;"
+                                                         type="checkbox"> Remember Me </label>
 
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
 
-                        <button id="loginSubmitBtn" type="submit" name="submit" class="login-button centerE">Sign in</button>
+                        <button class="login-button centerE" id="loginSubmitBtn" name="submit" type="submit">Sign in
+                        </button>
                         <div class="row" style="padding-bottom: 20px;">
-                            <a href="#!/register" class="login-button centerE" role="button">Register</a>
+                            <a class="login-button centerE" href="#!/register" role="button">Register</a>
                         </div>
                     </div>
                 </form>
@@ -32,7 +37,9 @@
     <div class="login-footer">
         <div class="row justify-content-center">
             <div class="col">
-                <a href="https://ivanbattimiello.dev" target="_blank"><img src="./images/powered_by.png" class="img-responsive login-m3-logo centerE" alt="Responsive image"></a>
+                <a href="https://ivanbattimiello.dev" target="_blank"><img alt="Responsive image"
+                                                                           class="img-responsive login-m3-logo centerE"
+                                                                           src="./images/powered_by.png"></a>
             </div>
         </div>
     </div>

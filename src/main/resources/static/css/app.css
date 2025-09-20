@@ -1,84 +1,56 @@
-p, span, label{
+p, span, label {
     color: #4986c8;
 }
 
-input:hover, select:hover{
-    /*border: 1px solid #4986c8;*/
+input:hover, select:hover {
     box-shadow: inset 0px 0px 6px 1px #4986c8;
     transition-duration: 250ms;
 }
 
-/*select option {*/
-    /*color: #4986c8;*/
-/*}*/
-
-/*input::-webkit-input-placeholder { !* Chrome/Opera/Safari *!*/
-    /*color: #4986c8;*/
-/*}*/
-/*input::-moz-placeholder { !* Firefox 19+ *!*/
-    /*color: #4986c8;*/
-/*}*/
-/*input:-ms-input-placeholder { !* IE 10+ *!*/
-    /*color: #4986c8;*/
-/*}*/
-/*input:-moz-placeholder { !* Firefox 18- *!*/
-    /*color: #4986c8;*/
-/*}*/
-/*input::placeholder {*/
-    /*color: #4986c8;*/
-/*}*/
-
 .blueBg {
     background: #e40520;
-    /* background-color: #0288d1; */
     position: absolute;
     width: 100%;
 }
 
-.app-btn-color{
+.app-btn-color {
     color: #fff;
     background-color: #4986c8;
 }
 
-.app-btn-red{
+.app-btn-red {
     background-color: #dc3545;
 }
 
-.app-btn-color > span{
+.app-btn-color > span {
     color: #fff;
 }
 
-.app-btn-color:hover{
+.app-btn-color:hover {
     color: #fff;
     background-color: #2f649d;
     border-color: #2f649d;
 }
 
-.app-header{
-    margin-top:10px;
+.app-header {
+    margin-top: 10px;
     font-family: Open Sans;
     text-shadow: 4px 1px 30px #023c79;
 }
 
-.app-font{
+.app-font {
     font-family: Open Sans;
 }
 
-.app-color{
+.app-color {
     color: #4986c8;
 }
 
-.app-navbar{
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*right: 0;*/
-}
-
-.app-white{
+.app-white {
     color: white;
 }
 
-.app-body{
+.app-body {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -87,47 +59,43 @@ input:hover, select:hover{
     overflow-y: auto;
 }
 
-.app-container{
-    /*margin-bottom: 15px;*/
-}
-
-.app-brand{
+.app-brand {
     height: 63px;
     top: -7px;
 }
 
-.app-center{
+.app-center {
     text-align: center;
     text-align: -webkit-center;
     text-align: -moz-center;
 }
 
-.app-inline{
+.app-inline {
     display: inline-flex;
 }
 
-.app-profile-img{
+.app-profile-img {
     max-width: 40px;
 }
 
-.app-profile{
+.app-profile {
     border: none;
     padding: initial;
 }
 
-.popover-header{
+.popover-header {
     text-align: center;
-    color:black;
+    color: black;
 }
 
-.app-alignv{
+.app-alignv {
     content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
 }
 
-.app-username{
+.app-username {
     margin-top: 10px;
     padding-left: 0;
     text-align: center;
@@ -142,10 +110,6 @@ input:hover, select:hover{
     justify-content: center;
     padding-left: 0;
 }
-
-/*.li {*/
-    /*transition: all 200ms ease-in;*/
-/*}*/
 
 .timestamp {
     margin-bottom: 20px;
@@ -162,13 +126,15 @@ input:hover, select:hover{
     justify-content: center;
     border-top: 2px solid #D6DCE0;
     position: relative;
-    transition: all 200ms ease-in;  /* Transizione di quando si attiva l'elemento*/
+    transition: all 200ms ease-in; /* Transition when element activate */
 }
+
 .status div {
     font-weight: 400;
     font-size: 1.7rem;
     cursor: pointer;
 }
+
 .status:before {
     content: "";
     width: 28px;
@@ -179,17 +145,19 @@ input:hover, select:hover{
     position: absolute;
     top: -15px;
     left: 42%;
-    transition: all 200ms ease-in;   /* Transizione di quando si disattiva l'elemento*/
+    transition: all 200ms ease-in;
 }
 
 .li.complete .status {
     border-top: 2px solid #66DC71;
 }
+
 .li.complete .status:before {
     background-color: #66DC71;
     border: none;
     transition: all 200ms ease-in;
 }
+
 .li.complete .status h4 {
     color: #66DC71;
 }
@@ -203,8 +171,6 @@ input:hover, select:hover{
 
     .li {
         transition: all 200ms ease-in;
-        /*display: flex;*/
-        /*width: inherit;*/
     }
 
     .timestamp {
@@ -212,8 +178,6 @@ input:hover, select:hover{
     }
 
     .status:before {
-        /*left: -8%;*/
-        /*top: 30%;*/
         transition: all 200ms ease-in;
         left: 49%;
     }
@@ -224,11 +188,11 @@ input:hover, select:hover{
     background-color: #75C7F6;
 }
 
-.app-background-form{
+.app-background-form {
     background: white;
 }
 
-.app-form-control{
+.app-form-control {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
@@ -239,7 +203,7 @@ input:hover, select:hover{
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .fast-fade {
@@ -258,7 +222,7 @@ input:hover, select:hover{
 
 
 /* Table */
-.app-table-container{
+.app-table-container {
     background-color: #ffffff;
     padding-left: 20px;
     padding-right: 20px;
@@ -269,42 +233,39 @@ input:hover, select:hover{
     width: 100%;
 }
 
-.app-table{
+.app-table {
     background-color: #ffffff;
     color: #484c4d;
     font-weight: 400;
-    /*display: block;*/
     overflow: auto;
 }
+
 @media (max-width: 877px) {
-    .app-table{
+    .app-table {
         display: block;
     }
 }
 
-.app-table>tbody>tr:nth-of-type(even) {
+.app-table > tbody > tr:nth-of-type(even) {
     background-color: #2f649d;
-    /*background-color: #039be5;*/
 }
 
-.app-table>tbody>tr:nth-of-type(odd) {
+.app-table > tbody > tr:nth-of-type(odd) {
     background-color: #4986c8;
-    /*background-color: #0288d1;*/
 }
 
-.app-table .ng-table-header{
+.app-table .ng-table-header {
     text-align: left;
-    /*font-size: 13px;*/
     font-size: 11pt;
     font-weight: 600;
 }
 
-.app-table .input-filter{
+.app-table .input-filter {
     height: 28px;
     background: #aacff7;
 }
 
-.app-table-showing{
+.app-table-showing {
     color: #484c4d;
     font-weight: 500;
     margin-bottom: 20px;
@@ -315,7 +276,6 @@ input:hover, select:hover{
 }
 
 .ng-table-pager button:hover {
-    /*background: #66c2f7;*/
     box-shadow: inset 0px 0px 5px 1px #4986c8;
 }
 
@@ -342,63 +302,58 @@ input:hover, select:hover{
     outline: none;
 }
 
-.app-table-azioni{
-    display: inline;
-    position: relative;
-    top: 10px;
-}
-
-.app-table-container .ng-table th.sortable.sort-asc, .app-table-container .ng-table th.sortable.sort-desc{
+.app-table-container .ng-table th.sortable.sort-asc, .app-table-container .ng-table th.sortable.sort-desc {
     background: #aacff7;
     outline: none;
 }
 
-.ng-table th.sortable:last-child .sort-indicator:before, .ng-table th.sortable:last-child .sort-indicator:after{
-    visibility: hidden;
-}
-.ng-table th.sortable:last-child .sort-indicator:hover:before, .ng-table th.sortable:last-child .sort-indicator:hover:after{
+.ng-table th.sortable:last-child .sort-indicator:before, .ng-table th.sortable:last-child .sort-indicator:after {
     visibility: hidden;
 }
 
-.ng-table th.sortable:last-child{
+.ng-table th.sortable:last-child .sort-indicator:hover:before, .ng-table th.sortable:last-child .sort-indicator:hover:after {
+    visibility: hidden;
+}
+
+.ng-table th.sortable:last-child {
     pointer-events: none;
 }
 
-.app-table-container .ng-table th.sortable:last-child{
-    background-color: transparent!important;
+.app-table-container .ng-table th.sortable:last-child {
+    background-color: transparent !important;
     cursor: default;
-    /*outline: none;*/
 }
-.app-table-container .ng-table th.sortable:last-child:active{
+
+.app-table-container .ng-table th.sortable:last-child:active {
     outline: none;
 }
 
-.app-table-container .pagination>li>a, .pagination>li>span{
+.app-table-container .pagination > li > a, .pagination > li > span {
     color: #e6e6e6;
     background-color: #aacff7;
 }
 
-.app-table-container .pagination>.active>a, .pagination>.active>a>span, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+.app-table-container .pagination > .active > a, .pagination > .active > a > span, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
     background-color: #4986c8;
     border-color: #fff;
     color: #fff;
     cursor: default;
 }
 
-.app-table-container .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+.app-table-container .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
     box-shadow: inset 0px 0px 5px 1px #4986c8;
 }
 
-.pagination>.disabled>a{
+.pagination > .disabled > a {
     background-color: #dee2e6 !important;
     color: #adadad !important;
 }
 
-.dropdown-item.active, .dropdown-item:active{
+.dropdown-item.active, .dropdown-item:active {
     background-color: #2f649d;
 }
 
-.app-no-btn{
+.app-no-btn {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -406,7 +361,7 @@ input:hover, select:hover{
 
 
 /*LOADER*/
-.loader-overlay{
+.loader-overlay {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -414,26 +369,24 @@ input:hover, select:hover{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
-.custom-loader{
+.custom-loader {
     position: fixed;
     width: 100px;
     height: 100px;
     left: 52%;
     top: 50%;
-    /*transform: translate(-55%, -55%);*/
 }
 
 /*Loader Customization*/
-
 .ball-clip-rotate-multiple > div {
     background-color: #2f649d;
 }
 
-.ball-clip-rotate-multiple>div:last-child{
+.ball-clip-rotate-multiple > div:last-child {
     background: white;
 }
 
@@ -442,10 +395,9 @@ input:hover, select:hover{
 }
 
 /* Alert */
-.my-alert{
-    /*se si vuole mettere fixed*/
+.my-alert {
     position: fixed;
-    width:50%;
+    width: 50%;
     top: 65px;
     right: 0;
     z-index: 999;
@@ -477,7 +429,7 @@ input:hover, select:hover{
     opacity: 1;
 }
 
-.blink-effect{
+.blink-effect {
     transition: all cubic-bezier(0.36, 1.14, 0.9, -0.76) 0.9s;
 }
 
@@ -485,34 +437,33 @@ input:hover, select:hover{
 .pie-container {
     width: 100%;
     height: auto;
-    /*background-color: #ffffff;*/
     padding-top: 15px;
     padding-bottom: 15px;
     border: 1px solid #e6e6e6;
     box-shadow: 2px 2px 1px -1px #e6e6e680;
 }
+
 .line-container {
     width: 100%;
     height: 100%;
-    /*background-color: #ffffff;*/
     padding: 30px;
     border: 1px solid #e6e6e6;
     box-shadow: 2px 2px 1px -1px #e6e6e680;
 }
+
 .bar-container {
     width: 100%;
     height: 100%;
-    /*background-color: #ffffff;*/
     padding: 30px;
     border: 1px solid #e6e6e6;
     box-shadow: 2px 2px 1px -1px #e6e6e680;
 }
 
-.chart-content{
+.chart-content {
     height: auto;
 }
 
-.col-app-20{
+.col-app-20 {
     position: relative;
     width: 100%;
     min-height: 1px;
@@ -520,12 +471,12 @@ input:hover, select:hover{
     padding-left: 15px;
 }
 
-.btn-link{
+.btn-link {
     text-decoration: none !important;
     color: inherit;
 }
 
-.oi-plus:before, .oi-minus:before{
+.oi-plus:before, .oi-minus:before {
     font-size: 13px;
     margin-right: 5px;
     vertical-align: middle;
@@ -573,36 +524,37 @@ input:hover, select:hover{
 }
 
 .progress-striped .progress-bar-warning {
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
-    background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
 }
 
 
 /* Sample Animation*/
 /* The starting CSS styles for the enter animation */
 
-.fade{
-    opacity:1;
+.fade {
+    opacity: 1;
 }
 
 .fade.ng-enter {
-    transition:0.5s linear all;
-    opacity:0;
+    transition: 0.5s linear all;
+    opacity: 0;
 }
 
 /* The finishing CSS styles for the enter animation */
 .fade.ng-enter.ng-enter-active {
-    opacity:1;
+    opacity: 1;
 }
 
 /* now the element will fade out before it is removed from the DOM */
 .fade.ng-leave {
-    transition:0.5s linear all;
-    opacity:1;
+    transition: 0.5s linear all;
+    opacity: 1;
 }
+
 .fade.ng-leave.ng-leave-active {
-    opacity:0;
+    opacity: 0;
 }
 
 @media (min-width: 768px) {

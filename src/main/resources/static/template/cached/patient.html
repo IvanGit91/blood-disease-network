@@ -1,18 +1,20 @@
-<div id="patientBody" class="card-body" style="padding-bottom: 0;">
+<div class="card-body" id="patientBody" style="padding-bottom: 0;">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="firstNamePatient">First Name</label>
-            <input type="text" class="app-form-control" id="firstNamePatient" placeholder="Insert First Name" ng-required="activeRequired" ng-model="patient.firstName">
+            <input class="app-form-control" id="firstNamePatient" ng-model="patient.firstName" ng-required="activeRequired"
+                   placeholder="Insert First Name" type="text">
         </div>
         <div class="form-group col-md-6">
             <label for="lastNamePatient">Last Name</label>
-            <input type="text" class="app-form-control" id="lastNamePatient" placeholder="Insert last name" ng-required="activeRequired" ng-model="patient.lastName">
+            <input class="app-form-control" id="lastNamePatient" ng-model="patient.lastName" ng-required="activeRequired"
+                   placeholder="Insert last name" type="text">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="sessoPatient">Gender</label>
-            <select class="app-form-control" id="sessoPatient"
+            <label for="genderPatient">Gender</label>
+            <select class="app-form-control" id="genderPatient"
                     ng-model="patient.gender"
                     ng-required="activeRequired">
                 <option value="">-- Select the gender --</option>
@@ -22,27 +24,32 @@
         </div>
         <div class="form-group col-md-6">
             <label>Birth Date</label>
-            <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="app-form-control" ng-required="activeRequired" ng-model="patient.birthDate">
+            <input class="app-form-control" max="3000-12-31" min="1000-01-01" name="bday" ng-model="patient.birthDate"
+                   ng-required="activeRequired" type="date">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="residencePatient">Residence</label>
-            <input type="text" class="app-form-control" id="residencePatient" placeholder="Insert residence" ng-required="activeRequired" ng-model="patient.residence">
+            <input class="app-form-control" id="residencePatient" ng-model="patient.residence" ng-required="activeRequired"
+                   placeholder="Insert residence" type="text">
         </div>
         <div class="form-group col-md-6">
             <label for="ageAtDiagnosisPatient">Diagnosis Age</label>
-            <input type="number" class="app-form-control" id="ageAtDiagnosisPatient" placeholder="Insert diagnosis age" ng-required="activeRequired" ng-model="patient.ageAtDiagnosis">
+            <input class="app-form-control" id="ageAtDiagnosisPatient" ng-model="patient.ageAtDiagnosis" ng-required="activeRequired"
+                   placeholder="Insert diagnosis age" type="number">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="professionPatient">Profession</label>
-            <input type="text" class="app-form-control" id="professionPatient" placeholder="Insert profession" ng-model="patient.profession">
+            <input class="app-form-control" id="professionPatient" ng-model="patient.profession" placeholder="Insert profession"
+                   type="text">
         </div>
         <div class="form-group col-md-6">
             <label for="originCenterPatient">Origin Center</label>
-            <input type="text" class="app-form-control" id="originCenterPatient" placeholder="Insert origin center" ng-required="activeRequired" ng-model="patient.originCenter">
+            <input class="app-form-control" id="originCenterPatient" ng-model="patient.originCenter" ng-required="activeRequired"
+                   placeholder="Insert origin center" type="text">
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 /log/
-/src/main/java/it/ivan/bdn/reverseDB/
+/src/main/java/ivan/personal/bdn/reverseDB/
 
 ### STS ###
 .apt_generated

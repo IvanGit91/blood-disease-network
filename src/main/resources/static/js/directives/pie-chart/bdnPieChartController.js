@@ -1,4 +1,3 @@
-
 angular.module('bdaApplication').controller("BdnPieChartController", BdnPieChartController);
 
 function BdnPieChartController($scope, $window, $location, $http) {

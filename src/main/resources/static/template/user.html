@@ -1,5 +1,5 @@
 <div class="container-fluid app-container" ng-show="load">
-    <h1 align="center" class="app-header">GESTIONE UTENTI</h1>
+    <h1 align="center" class="app-header">USER MANAGEMENT</h1>
     <div style="margin-top: 20px">
         <div class="container">
             <div ng-show="operation === 'add' || operation === 'update'">
@@ -14,27 +14,32 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="firstNameUser">First Name</label>
-                                        <input type="text" class="app-form-control" id="firstNameUser" placeholder="Insert First Name" required ng-model="user.firstName">
+                                        <input class="app-form-control" id="firstNameUser" ng-model="user.firstName"
+                                               placeholder="Insert First Name" required type="text">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="lastNameUser">Last Name</label>
-                                        <input type="text" class="app-form-control" id="lastNameUser" placeholder="Insert Last Name" required ng-model="user.lastName">
+                                        <input class="app-form-control" id="lastNameUser" ng-model="user.lastName"
+                                               placeholder="Insert Last Name" required type="text">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="emailUser">Email</label>
-                                        <input type="email" class="app-form-control" id="emailUser" placeholder="Insert Email" required ng-model="user.email">
+                                        <input class="app-form-control" id="emailUser" ng-model="user.email"
+                                               placeholder="Insert Email" required type="email">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="usernameUser">Username</label>
-                                        <input type="text" class="app-form-control" id="usernameUser" placeholder="Insert Username" required ng-model="user.username">
+                                        <input class="app-form-control" id="usernameUser" ng-model="user.username"
+                                               placeholder="Insert Username" required type="text">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="passwordUser">Password</label>
-                                        <input type="password" class="app-form-control" id="passwordUser" placeholder="Insert Password" required ng-model="user.password">
+                                        <input class="app-form-control" id="passwordUser" ng-model="user.password"
+                                               placeholder="Insert Password" required type="password">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="comboHospital">Hospital</label>
@@ -43,23 +48,22 @@
                                                 ng-model="selectedHospital"
                                                 ng-options="item.name for item in hospitals track by item.code"
                                                 required>
-                                            <option value="" class="app-color">-- Select an hospital--</option>
+                                            <option class="app-color" value="">-- Select an hospital--</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="roleUser">Ruolo</label>
-                                        <select id="roleUser" class="app-form-control" ng-model="user.role" required>
-                                            <option value="" class="app-color">-- Select a role for the user --</option>
-                                            <option value="USER" class="app-color">USER</option>
-                                            <option value="ADMIN" class="app-color">ADMIN</option>
+                                        <label for="roleUser">Role</label>
+                                        <select class="app-form-control" id="roleUser" ng-model="user.role" required>
+                                            <option class="app-color" value="">-- Select a role for the user --</option>
+                                            <option class="app-color" value="USER">USER</option>
+                                            <option class="app-color" value="ADMIN">ADMIN</option>
                                         </select>
-                                        <!--<input type="text" class="app-form-control" id="ruoloUser" placeholder="Insert Ruolo" required ng-model="user.role">-->
                                     </div>
                                 </div>
                                 <div class="app-center">
-                                    <button type="submit" class="btn btn-primary app-btn-color">
+                                    <button class="btn btn-primary app-btn-color" type="submit">
                                         <span ng-show="add">Save User</span>
                                         <span ng-show="!add">Update User</span>
                                     </button>
@@ -72,7 +76,8 @@
             <div ng-show="operation === 'list'">
                 <div class="row fast-fade" ng-show="isRendered">
                     <div class="app-table-container">
-                        <table ng-table="tableParams" class="table app-table" show-filter="true" template-pagination="custom/pager">
+                        <table class="table app-table" ng-table="tableParams" show-filter="true"
+                               template-pagination="custom/pager">
                             <tr ng-repeat="row in $data">
                                 <td data-title="'Id User'" filter="{ id: 'text'}" sortable="'id'">
                                     {{row.id}}
@@ -92,17 +97,22 @@
                                 <td data-title="'Username'" filter="{ username: 'text'}" sortable="'username'">
                                     {{row.username}}
                                 </td>
-                                <td data-title="'Actions'" class="table-actions" sortable="' '">
-                                    <button class="oi oi-cog app-white app-no-btn" style="margin-right: -5px;" ng-click="modUser(row)" data-trigger="hover" data-toggle="tooltip" data-placement="top" title="Modifica User"></button>
-                                    <span data-trigger="hover" data-toggle="tooltip" data-placement="top" title="Delete User">
+                                <td class="table-actions" data-title="'Actions'" sortable="' '">
+                                    <button class="oi oi-cog app-white app-no-btn" data-placement="top"
+                                            data-toggle="tooltip" data-trigger="hover" ng-click="modUser(row)"
+                                            style="margin-right: -5px;" title="Update User"></button>
+                                    <span data-placement="top" data-toggle="tooltip" data-trigger="hover"
+                                          title="Delete User">
                                         <button class="oi oi-circle-x app-white app-no-btn"
-                                              popover
-                                              data-container="body" data-html="true" data-toggle="popover" data-placement="left"
-                                              data-trigger="focus" title="Are you sure you want to delete the user: {{row.firstName}}?"
-                                              data-content="<div class='app-center'>
+                                                data-container="body"
+                                                data-content="<div class='app-center'>
                                                                <input type='hidden' value='{{row.id}}'>
                                                                <button ng-click='deleteUser($event)' class='btn btn-danger navbar-btn' role='button'>Delete</button>
-                                                            </div>">
+                                                            </div>" data-html="true" data-placement="left"
+                                                data-toggle="popover"
+                                                data-trigger="focus"
+                                                popover
+                                                title="Are you sure you want to delete the user: {{row.firstName}}?">
                                         </button>
                                     </span>
                                 </td>
@@ -116,12 +126,13 @@
 </div>
 
 
-<script type="text/ng-template" id="custom/pager">
+<script id="custom/pager" type="text/ng-template">
     <div class="app-table-showing app-center">
         <span>Showing {{params.page()}} to {{(params.total() / params.count()) | roundup}} of {{params.total()}} entries</span>
     </div>
     <div class="ng-cloak ng-table-pager" ng-if="params.data.length" style="display: flow-root;">
-        <div ng-if="params.settings().counts.length" class="ng-table-counts btn-group pull-right" style="margin-bottom: 24px">
+        <div ng-if="params.settings().counts.length" class="ng-table-counts btn-group pull-right"
+             style="margin-bottom: 24px">
             <button ng-repeat="count in params.settings().counts" type="button"
                     ng-class="{'active':params.count() == count}"
                     ng-click="params.count(count)" class="btn btn-default">
@@ -129,12 +140,16 @@
             </button>
         </div>
         <ul ng-if="pages.length" class="pagination ng-table-pagination">
-            <li class="page-item" ng-class="{'disabled': !page.active && !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type">
+            <li class="page-item" ng-class="{'disabled': !page.active && !page.current, 'active': page.current}"
+                ng-repeat="page in pages" ng-switch="page.type">
                 <a class="page-link" ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo;</a>
-                <a class="page-link" ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
-                <a class="page-link" ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+                <a class="page-link" ng-switch-when="first" ng-click="params.page(page.number)" href=""><span
+                        ng-bind="page.number"></span></a>
+                <a class="page-link" ng-switch-when="page" ng-click="params.page(page.number)" href=""><span
+                        ng-bind="page.number"></span></a>
                 <a class="page-link" ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a>
-                <a class="page-link" ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+                <a class="page-link" ng-switch-when="last" ng-click="params.page(page.number)" href=""><span
+                        ng-bind="page.number"></span></a>
                 <a class="page-link" ng-switch-when="next" ng-click="params.page(page.number)" href="">&raquo;</a>
             </li>
         </ul>

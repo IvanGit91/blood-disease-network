@@ -1,25 +1,25 @@
 <div class="container-fluid app-container" ng-show="load && rendered">
     <h1 align="center" class="app-header">CREATE MEDICAL RECORD - {{card}}</h1>
 
-    <ul id="timelineMielo" class="timeline" style="margin-top: 40px;">
+    <ul class="timeline" id="timelineMyelo" style="margin-top: 40px;">
         <li class="li complete">
             <div class="status">
-                <div ng-click="sectionClicked($event)"> Personal Details </div>
+                <div ng-click="sectionClicked($event)"> Personal Details</div>
             </div>
         </li>
         <li class="li">
             <div class="status">
-                <div ng-click="sectionClicked($event)"> Diagnosis </div>
+                <div ng-click="sectionClicked($event)"> Diagnosis</div>
             </div>
         </li>
         <li class="li">
             <div class="status">
-                <div ng-click="sectionClicked($event)"> Therapy </div>
+                <div ng-click="sectionClicked($event)"> Therapy</div>
             </div>
         </li>
         <li class="li">
             <div class="status">
-                <div ng-click="sectionClicked($event)"> Follow-up </div>
+                <div ng-click="sectionClicked($event)"> Follow-up</div>
             </div>
         </li>
     </ul>
@@ -28,31 +28,36 @@
         <div class="card" ng-show="currentSection === 1">
             <div class="card-header app-color" id="personalDetailsAccordion">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePersonalDetails" aria-expanded="true" aria-controls="collapsePersonalDetails">
+                    <button aria-controls="collapsePersonalDetails" aria-expanded="true" class="btn btn-link"
+                            data-target="#collapsePersonalDetails" data-toggle="collapse"
+                            type="button">
                         Patient Personal Details
                     </button>
                 </h5>
             </div>
             <form ng-submit="addPatient()">
-                <div id="collapsePersonalDetails" class="collapse show" aria-labelledby="personalDetailsAccordion" data-parent="#accordionBdn">
+                <div aria-labelledby="personalDetailsAccordion" class="collapse show" data-parent="#accordionBdn"
+                     id="collapsePersonalDetails">
                     <ng-include src="'patient.html'"></ng-include>
                 </div>
                 <div class="app-center" style="margin: 10px 0 10px 0;">
-                    <button type="submit" class="btn btn-primary app-btn-color">Save Patient</button>
+                    <button class="btn btn-primary app-btn-color" type="submit">Save Patient</button>
                 </div>
             </form>
         </div>
         <div class="card" ng-show="currentSection === 2">
-            <div class="card-header app-color" id="diagnosiAccordion">
+            <div class="card-header app-color" id="diagnosisAccordion">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseDiagnosi" aria-expanded="true" aria-controls="collapseDiagnosi">
+                    <button aria-controls="collapseDiagnosis" aria-expanded="true" class="btn btn-link" data-target="#collapseDiagnosi"
+                            data-toggle="collapse" type="button">
                         Diagnosis
                     </button>
                 </h5>
             </div>
 
             <form ng-submit="addMyeloproliferativeDiagnosis()">
-                <div id="collapseDiagnosi" class="collapse show" aria-labelledby="diagnosiAccordion" data-parent="#accordionBdn">
+                <div aria-labelledby="diagnosisAccordion" class="collapse show" data-parent="#accordionBdn"
+                     id="collapseDiagnosis">
                     <div class="card-body" style="padding-bottom: 0;">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -61,12 +66,15 @@
                                         ng-model="myeloDiagnosis.who2016"
                                         ng-options="item.description for item in whos track by item.idWho"
                                         ng-required="activeRequired">
-                                    <option value="">-- Select WHO (World Health Organization) Classification --</option>
+                                    <option value="">-- Select WHO (World Health Organization) Classification --
+                                    </option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisBiopsy">Biopsy</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisBiopsy" placeholder="Enter biopsy details" ng-required="activeRequired" ng-model="myeloDiagnosis.biopsy" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisBiopsy" maxlength="45"
+                                       ng-model="myeloDiagnosis.biopsy" ng-required="activeRequired"
+                                       placeholder="Enter biopsy details" type="text">
                             </div>
                         </div>
                         <div class="form-row">
@@ -80,27 +88,35 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisGeneticMutation">Genetic Mutation</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisGeneticMutation" placeholder="Enter genetic mutation" ng-model="myeloDiagnosis.geneticMutation" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisGeneticMutation" maxlength="45"
+                                       ng-model="myeloDiagnosis.geneticMutation" placeholder="Enter genetic mutation"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisMutationType">Mutation Type</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisMutationType" placeholder="Enter mutation type" ng-model="myeloDiagnosis.mutationType" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisMutationType" maxlength="45"
+                                       ng-model="myeloDiagnosis.mutationType" placeholder="Enter mutation type"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisSplenomegaly">Splenomegaly</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisSplenomegaly" placeholder="Enter splenomegaly details" ng-model="myeloDiagnosis.splenomegaly" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisSplenomegaly" maxlength="45"
+                                       ng-model="myeloDiagnosis.splenomegaly" placeholder="Enter splenomegaly details"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisSpleenLength">Spleen Length</label>
-                                <input type="number" class="app-form-control" id="MyeloDiagnosisSpleenLength" placeholder="Enter spleen length" ng-model="myeloDiagnosis.spleenLength">
+                                <input class="app-form-control" id="MyeloDiagnosisSpleenLength" ng-model="myeloDiagnosis.spleenLength"
+                                       placeholder="Enter spleen length" type="number">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisSpleenDiameter">Spleen Diameter</label>
-                                <input type="number" class="app-form-control" id="MyeloDiagnosisSpleenDiameter" placeholder="Enter spleen diameter" ng-model="myeloDiagnosis.spleenDiameter">
+                                <input class="app-form-control" id="MyeloDiagnosisSpleenDiameter" ng-model="myeloDiagnosis.spleenDiameter"
+                                       placeholder="Enter spleen diameter" type="number">
                             </div>
                         </div>
                         <div class="form-row">
@@ -110,55 +126,68 @@
                                         ng-model="myeloDiagnosis.symptom"
                                         ng-options="item.description for item in symptom track by item.id"
                                         ng-required="activeRequired">
-                                    <option value="" class="app-color">-- Select a symptom --</option>
+                                    <option class="app-color" value="">-- Select a symptom --</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisPreviousThromboticEpisode">Previous Thrombotic Episode</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisPreviousThromboticEpisode" placeholder="Enter previous thrombotic episode" ng-model="myeloDiagnosis.previousThromboticEpisode" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisPreviousThromboticEpisode" maxlength="45"
+                                       ng-model="myeloDiagnosis.previousThromboticEpisode"
+                                       placeholder="Enter previous thrombotic episode" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisThromboticEpisodeSite">Thrombotic Episode Site</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisThromboticEpisodeSite" placeholder="Enter thrombotic episode site" ng-model="myeloDiagnosis.thromboticEpisodeSite" maxlength="200">
+                                <input class="app-form-control" id="MyeloDiagnosisThromboticEpisodeSite" maxlength="200"
+                                       ng-model="myeloDiagnosis.thromboticEpisodeSite"
+                                       placeholder="Enter thrombotic episode site" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisPvRisk">PV Risk</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisPvRisk" placeholder="Enter PV risk" ng-model="myeloDiagnosis.pvRisk" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisPvRisk" maxlength="45"
+                                       ng-model="myeloDiagnosis.pvRisk" placeholder="Enter PV risk" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisEtRisk">ET Risk</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisEtRisk" placeholder="Enter ET risk" ng-model="myeloDiagnosis.etRisk" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisEtRisk" maxlength="45"
+                                       ng-model="myeloDiagnosis.etRisk" placeholder="Enter ET risk" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MyeloDiagnosisIpssRisk">IPSS Risk</label>
-                                <input type="text" class="app-form-control" id="MyeloDiagnosisIpssRisk" placeholder="Enter IPSS risk" ng-model="myeloDiagnosis.ipssRisk" maxlength="45">
+                                <input class="app-form-control" id="MyeloDiagnosisIpssRisk" maxlength="45"
+                                       ng-model="myeloDiagnosis.ipssRisk" placeholder="Enter IPSS risk" type="text">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="app-center" style="margin: 10px 0 10px 0;">
-                    <button type="submit" class="btn btn-primary app-btn-color">Save Myeloproliferative Diagnosis</button>
+                    <button class="btn btn-primary app-btn-color" type="submit">Save Myeloproliferative Diagnosis
+                    </button>
                 </div>
             </form>
         </div>
         <div class="card" ng-show="currentSection === 3">
-            <form ng-submit="addTherapyMieloproliferative()">
+            <form ng-submit="addTherapyMyeloproliferative()">
                 <div class="card-header app-color" id="therapyAccordion">
                     <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTherapy" aria-expanded="true" aria-controls="collapseTherapy">
+                        <button aria-controls="collapseTherapy" aria-expanded="true" class="btn btn-link" data-target="#collapseTherapy"
+                                data-toggle="collapse" type="button">
                             <span>Therapy</span>
                             <span class="newelement"> - 1</span>
                         </button>
                         <div class="pull-right">
-                            <button ng-show="localTherapy[0] === numTherapies" type="button" class="oi oi-plus btn btn-primary app-btn-color" style="margin-left: 10px;" ng-click="addNewTherapy($event.target.parentNode.parentNode.parentNode)">Add</button>
+                            <button class="oi oi-plus btn btn-primary app-btn-color" ng-click="addNewTherapy($event.target.parentNode.parentNode.parentNode)"
+                                    ng-show="localTherapy[0] === numTherapies" style="margin-left: 10px;"
+                                    type="button">Add
+                            </button>
                         </div>
                     </h5>
                 </div>
-                <div id="collapseTherapy" class="collapse show" aria-labelledby="therapyAccordion" data-parent="#accordionBdn">
+                <div aria-labelledby="therapyAccordion" class="collapse show" data-parent="#accordionBdn"
+                     id="collapseTherapy">
                     <div class="card-body" style="padding-bottom: 0;">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -167,7 +196,7 @@
                                         ng-model="myeloTherapy[0].therapyLine"
                                         ng-options="item.description for item in lineeTherapies track by item.id"
                                         ng-required="activeRequired">
-                                    <option value="" class="app-color">-- Select a therapy line --</option>
+                                    <option class="app-color" value="">-- Select a therapy line --</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -176,84 +205,111 @@
                                         ng-model="myeloTherapy[0].treatmentResponse"
                                         ng-options="item.description for item in treatmentResponses track by item.id"
                                         ng-required="activeRequired">
-                                    <option value="" class="app-color">-- Select a treatment response --</option>
+                                    <option class="app-color" value="">-- Select a treatment response --</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyAntiplatelet">Antiplatelet</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyAntiplatelet" placeholder="Enter antiplatelet" ng-model="myeloTherapy[0].antiplatelet" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyAntiplatelet" maxlength="45"
+                                       ng-model="myeloTherapy[0].antiplatelet" placeholder="Enter antiplatelet"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyAntiplateletType">Antiplatelet Type</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyAntiplateletType" placeholder="Enter antiplatelet type" ng-model="myeloTherapy[0].antiplateletType" maxlength="150">
+                                <input class="app-form-control" id="myeloTherapyAntiplateletType" maxlength="150"
+                                       ng-model="myeloTherapy[0].antiplateletType" placeholder="Enter antiplatelet type"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapySupport">Support</label>
-                                <input type="text" class="app-form-control" id="myeloTherapySupport" placeholder="Enter support" ng-model="myeloTherapy[0].support" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapySupport" maxlength="45"
+                                       ng-model="myeloTherapy[0].support" placeholder="Enter support" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapySupportType">Support Type</label>
-                                <input type="text" class="app-form-control" id="myeloTherapySupportType" placeholder="Enter support type" ng-model="myeloTherapy[0].supportType" maxlength="150">
+                                <input class="app-form-control" id="myeloTherapySupportType" maxlength="150"
+                                       ng-model="myeloTherapy[0].supportType" placeholder="Enter support type"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyHematologic">Hematologic</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyHematologic" placeholder="Enter hematologic" ng-model="myeloTherapy[0].hematologic" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyHematologic" maxlength="45"
+                                       ng-model="myeloTherapy[0].hematologic" placeholder="Enter hematologic"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyFirstLine">First Line</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyFirstLine" placeholder="Enter first line" ng-model="myeloTherapy[0].firstLine" maxlength="100">
+                                <input class="app-form-control" id="myeloTherapyFirstLine" maxlength="100"
+                                       ng-model="myeloTherapy[0].firstLine" placeholder="Enter first line"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyThromboticEpisode">Thrombotic Episode</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyThromboticEpisode" placeholder="Enter thrombotic episode" ng-model="myeloTherapy[0].thromboticEpisode" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyThromboticEpisode" maxlength="45"
+                                       ng-model="myeloTherapy[0].thromboticEpisode"
+                                       placeholder="Enter thrombotic episode" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyEpisodeSite">Episode Site</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyEpisodeSite" placeholder="Enter episode site" ng-model="myeloTherapy[0].episodeSite" maxlength="100">
+                                <input class="app-form-control" id="myeloTherapyEpisodeSite" maxlength="100"
+                                       ng-model="myeloTherapy[0].episodeSite" placeholder="Enter episode site"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyAdverseEvent">Adverse Event</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyAdverseEvent" placeholder="Enter adverse event" ng-model="myeloTherapy[0].adverseEvent" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyAdverseEvent" maxlength="45"
+                                       ng-model="myeloTherapy[0].adverseEvent" placeholder="Enter adverse event"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyEventType">Event Type</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyEventType" placeholder="Enter event type" ng-model="myeloTherapy[0].eventType" maxlength="150">
+                                <input class="app-form-control" id="myeloTherapyEventType" maxlength="150"
+                                       ng-model="myeloTherapy[0].eventType" placeholder="Enter event type"
+                                       type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyOngoingTreatment">Ongoing Treatment</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyOngoingTreatment" placeholder="Enter ongoing treatment" ng-model="myeloTherapy[0].ongoingTreatment" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyOngoingTreatment" maxlength="45"
+                                       ng-model="myeloTherapy[0].ongoingTreatment" placeholder="Enter ongoing treatment"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyInterruptionReason">Interruption Reason</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyInterruptionReason" placeholder="Enter interruption reason" ng-model="myeloTherapy[0].interruptionReason" maxlength="500">
+                                <input class="app-form-control" id="myeloTherapyInterruptionReason" maxlength="500"
+                                       ng-model="myeloTherapy[0].interruptionReason"
+                                       placeholder="Enter interruption reason" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyDiseaseProgression">Disease Progression</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyDiseaseProgression" placeholder="Enter disease progression" ng-model="myeloTherapy[0].diseaseProgression" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyDiseaseProgression" maxlength="45"
+                                       ng-model="myeloTherapy[0].diseaseProgression"
+                                       placeholder="Enter disease progression" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="myeloTherapyProgressionTowards">Progression Towards</label>
-                                <input type="text" class="app-form-control" id="myeloTherapyProgressionTowards" placeholder="Enter progression towards" ng-model="myeloTherapy[0].progressionTowards" maxlength="45">
+                                <input class="app-form-control" id="myeloTherapyProgressionTowards" maxlength="45"
+                                       ng-model="myeloTherapy[0].progressionTowards"
+                                       placeholder="Enter progression towards" type="text">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="app-center" style="margin: 10px 0 10px 0;">
-                    <button type="submit" class="btn btn-primary app-btn-color">Save Myeloproliferative Therapy</button>
+                    <button class="btn btn-primary app-btn-color" type="submit">Save Myeloproliferative Therapy</button>
                 </div>
             </form>
         </div>
@@ -261,49 +317,61 @@
             <form ng-submit="addFollowupAll()">
                 <div class="card-header app-color" id="followupAccordion">
                     <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFollowup" aria-expanded="true" aria-controls="collapseFollowup">
+                        <button aria-controls="collapseFollowup" aria-expanded="true" class="btn btn-link"
+                                data-target="#collapseFollowup" data-toggle="collapse" type="button">
                             <span>Follow Up</span>
                             <span class="newelement"> - 1</span>
                         </button>
                         <div class="pull-right">
-                            <button ng-show="localFollowup[0] === numFollowup" type="button" class="oi oi-plus btn btn-primary app-btn-color" style="margin-left: 10px;" ng-click="addNewFollowup($event.target.parentNode.parentNode.parentNode)">Add</button>
+                            <button class="oi oi-plus btn btn-primary app-btn-color" ng-click="addNewFollowup($event.target.parentNode.parentNode.parentNode)"
+                                    ng-show="localFollowup[0] === numFollowup" style="margin-left: 10px;"
+                                    type="button">Add
+                            </button>
                         </div>
                     </h5>
                 </div>
-                <div id="collapseFollowup" class="collapse show" aria-labelledby="followupAccordion" data-parent="#accordionBdn">
-                    <div id="followupBody" class="card-body" style="padding-bottom: 0;">
+                <div aria-labelledby="followupAccordion" class="collapse show" data-parent="#accordionBdn"
+                     id="collapseFollowup">
+                    <div class="card-body" id="followupBody" style="padding-bottom: 0;">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="followupDate">Date</label>
-                                <input type="date" class="app-form-control" id="followupDate" placeholder="Insert date" ng-model="followup[0].date">
+                                <input class="app-form-control" id="followupDate" ng-model="followup[0].date" placeholder="Insert date"
+                                       type="date">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="followupExitus">Exitus</label>
-                                <input type="text" class="app-form-control" id="followupExitus" placeholder="Insert exitus" ng-model="followup[0].exitus" maxlength="45">
+                                <input class="app-form-control" id="followupExitus" maxlength="45"
+                                       ng-model="followup[0].exitus" placeholder="Insert exitus" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="followupNumCycles">Cycles Number</label>
-                                <input type="number" class="app-form-control" id="followupNumCycles" placeholder="Insert num cycles" ng-model="followup[0].numCycles">
+                                <input class="app-form-control" id="followupNumCycles" ng-model="followup[0].numCycles"
+                                       placeholder="Insert num cycles" type="number">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="followupCausa">Cause</label>
-                                <textarea type="textarea" cols="25" rows="4" class="app-form-control" id="followupCausa" placeholder="Insert cause" ng-model="followup[0].cause" maxlength="1000"></textarea>
+                                <textarea class="app-form-control" cols="25" id="followupCausa" maxlength="1000" ng-model="followup[0].cause"
+                                          placeholder="Insert cause" rows="4"
+                                          type="textarea"></textarea>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="followupPatologyStatus">Patology Status</label>
-                                <textarea name="textarea" id="followupPatologyStatus" cols="25" rows="4" class="app-form-control" placeholder="Insert pathology status" ng-model="followup[0].pathologyStatus" maxlength="1000"></textarea>
+                                <label for="followupPathologyStatus">Pathology Status</label>
+                                <textarea class="app-form-control" cols="25" id="followupPathologyStatus" maxlength="1000"
+                                          name="textarea" ng-model="followup[0].pathologyStatus"
+                                          placeholder="Insert pathology status" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="app-center" style="margin: 10px 0 10px 0;">
-                    <button type="submit" class="btn btn-primary app-btn-color">Save Follow Up</button>
+                    <button class="btn btn-primary app-btn-color" type="submit">Save Follow Up</button>
                 </div>
             </form>
         </div>

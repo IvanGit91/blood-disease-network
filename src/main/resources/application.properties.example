@@ -1,22 +1,18 @@
 ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
-spring.datasource.url = jdbc:postgresql://localhost:5433/bdn
-spring.datasource.username = <username>
-spring.datasource.password = <password>
-
+spring.datasource.url=jdbc:postgresql://localhost:5433/bdn
+spring.datasource.username=<username>
+spring.datasource.password=<password>
 ## Hibernate Properties
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
-
 # Hibernate ddl auto (create, create-drop, validate, update)
-spring.jpa.hibernate.ddl-auto = update
+spring.jpa.hibernate.ddl-auto=create
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
-
 #LOGGING
-logging.path = ./log/
-logging.pattern.console = %-5level ---> %d{HH:mm:ss} [%line] [%thread] %logger{36} - %msg%n
-logging.pattern.file = %-5level ---> %d{HH:mm:ss} [%line] [%thread] %logger{36} - %msg%n
-
+logging.path=./log/
+logging.pattern.console=%-5level ---> %d{HH:mm:ss} [%line] [%thread] %logger{36} - %msg%n
+logging.pattern.file=%-5level ---> %d{HH:mm:ss} [%line] [%thread] %logger{36} - %msg%n
 logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type.descriptor.sql=TRACE

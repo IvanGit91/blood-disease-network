@@ -1,10 +1,13 @@
-# Blood Diseases Network (BDN)
+# Blood Diseases Network (BDN) - Full-Stack Java AngularJS Application
 
-> ⚠️ **Legacy Project Notice**: This project was developed in 2018 using Java 1.8 and AngularJS 1.4.9, making it a legacy application with older technology stack.
+> ⚠️ **Legacy Project Notice**: This project was developed in 2018 using Java 1.8 and AngularJS 1.4.9, making it a
+> legacy application with older technology stack.
 
 ## Project Overview
 
-Blood Diseases Network (BDN) is a web-based management platform designed for healthcare professionals working in hematology. The application provides a comprehensive system for managing patient medical records, treatments, and diagnostic information for various blood diseases including:
+Blood Diseases Network (BDN) is a web-based management platform designed for healthcare professionals working in
+hematology. The application provides a comprehensive system for managing patient medical records, treatments, and
+diagnostic information for various blood diseases including:
 
 - **Chronic Lymphocytic Leukemia (CLL)**
 - **Multiple Myeloma**
@@ -24,6 +27,7 @@ Blood Diseases Network (BDN) is a web-based management platform designed for hea
 ### Technology Stack
 
 **Backend:**
+
 - Java 1.8
 - Spring Boot 2.0.4
 - Spring Security
@@ -32,6 +36,7 @@ Blood Diseases Network (BDN) is a web-based management platform designed for hea
 - Maven 3.x
 
 **Frontend:**
+
 - AngularJS 1.4.9
 - Bootstrap 3.3.6
 - jQuery 3.3.1
@@ -80,12 +85,14 @@ Before running the application, ensure you have the following installed:
 ## Building and Running
 
 ### 1. Clone the Repository
+
 ```bash
 git clone <repository-url>
 cd blood-disease-network
 ```
 
 ### 2. Build the Application
+
 ```bash
 # Clean and compile the project
 ./mvnw clean compile
@@ -100,12 +107,14 @@ cd blood-disease-network
 ### 3. Run the Application
 
 **Option A: Using Maven Spring Boot Plugin**
+
 ```bash
 # Run with development profile
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 **Option B: Using Java JAR**
+
 ```bash
 # After packaging, run the JAR file
 java -jar target/BDN_0.0.1.jar --spring.profiles.active=dev
@@ -114,6 +123,7 @@ java -jar target/BDN_0.0.1.jar --spring.profiles.active=dev
 ### 4. Access the Application
 
 Once the application is running, access it at:
+
 - **URL**: `http://localhost:8083/bdn`
 - **Default Port**: 8083
 - **Context Path**: `/bdn`
@@ -121,15 +131,16 @@ Once the application is running, access it at:
 ### 5. Initial Setup
 
 On first run, the application will:
+
 - Automatically create database tables (DDL auto-create)
 - Import the initial data from the `data.sql` file
 
 ### 6. Preloaded users
 
 The application can be accessed with the following preloaded users:
+
 - **Admin**: admin / admin
 - **User**: user / user
-
 
 ## Project Structure
 
@@ -170,7 +181,6 @@ The main configuration is in `src/main/resources/application.properties`:
 server.port=8083
 server.servlet.context-path=/bdn
 server.servlet.session.cookie.name=BDNSESSIONID
-
 # Static Resources
 spring.resources.static-locations=classpath:/static/
 ```
@@ -196,6 +206,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Future Development (TODO)
 
 ### Backend Improvements
+
 - [ ] **Add bulk adding functionality** to solve n+1 query issues
 - [ ] **Implement foreign key constraints** for data integrity
 - [ ] **Add comprehensive data validation** across all entities
@@ -203,6 +214,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [ ] **Implement search endpoints** for advanced querying capabilities
 
 ### Frontend Enhancements
+
 - [ ] **Complete missing UI sections** for all disease types
 - [ ] **Add comprehensive medical record operations** (edit, delete, archive)
 - [ ] **Implement therapy management features** (add, modify, track responses)
@@ -210,6 +222,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [ ] **Modernize frontend framework** (consider migration to Angular 2+ or React)
 
 ### General Improvements
+
 - [ ] **Add comprehensive test suite** (unit and integration tests)
 - [ ] **Implement proper logging strategy** with log levels and rotation
 - [ ] **Add API documentation** (Swagger/OpenAPI)
@@ -220,6 +233,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contributing
 
 Since this is a legacy project, contributions should focus on:
+
 1. **Bug fixes** for existing functionality
 2. **Security updates** for dependencies
 3. **Documentation improvements**
@@ -229,4 +243,5 @@ For major modernization efforts, consider creating a new version with updated te
 
 ## Support
 
-This is a legacy project developed in 2018. While basic functionality is working, support is limited. Please refer to the documentation and code comments for understanding the implementation.
+This is a legacy project developed in 2018. While basic functionality is working, support is limited. Please refer to
+the documentation and code comments for understanding the implementation.

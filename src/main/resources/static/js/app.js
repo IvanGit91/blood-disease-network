@@ -9,67 +9,67 @@ app.config(['$httpProvider',
     }
 ]);
 
-app.config(function($routeProvider) {
-	$routeProvider
+app.config(function ($routeProvider) {
+    $routeProvider
         .when('/', {
-            templateUrl : './template/login.html',
-            controller : 'loginController'
+            templateUrl: './template/login.html',
+            controller: 'loginController'
         })
         .when('/logout', {
             templateUrl: './template/login.html',
             controller: 'logoutController'
         })
         .when('/register', {
-            templateUrl : './template/register.html',
-            controller : 'registerController'
+            templateUrl: './template/register.html',
+            controller: 'registerController'
         })
-        .when('/main',{
+        .when('/main', {
             templateUrl: './template/main.html',
             controller: 'mainController'
         })
-        .when('/hospital/:operation',{
+        .when('/hospital/:operation', {
             templateUrl: './template/hospital.html',
             controller: 'hospitalController'
         })
-        .when('/user/:operation',{
+        .when('/user/:operation', {
             templateUrl: './template/user.html',
             controller: 'userController'
         })
-        .when('/medical-record-myelo/:idcard/:operation',{
+        .when('/medical-record-myelo/:idcard/:operation', {
             templateUrl: './template/myelo.html',
             controller: 'myeloController'
         })
-        .when('/medical-record-cll/:idcard/:operation',{
+        .when('/medical-record-cll/:idcard/:operation', {
             templateUrl: './template/cll.html',
             controller: 'cllController'
         })
-        .when('/option',{
+        .when('/option', {
             templateUrl: './template/options.html',
             controller: 'optionsController'
         })
         .otherwise({
-            redirectTo : '/login',
-            templateUrl : './template/login.html',
+            redirectTo: '/login',
+            templateUrl: './template/login.html',
             controller: 'loginController'
         });
 });
 
-app.config(function(IdleProvider, KeepaliveProvider) {
+app.config(function (IdleProvider, KeepaliveProvider) {
     var timeoutInSeconds = 29 * 60;  //29 minutes
     IdleProvider.idle(60); // In seconds. It' s the time that it needs to stay 'idle' till the IdleStart function start
-    // 29 minuti + 1 minute to enter in the idle state
+    // 29 minutes + 1 minute to enter the idle state
     IdleProvider.timeout(timeoutInSeconds);  // In seconds. The time that needs to pass after the IdleStart function to go in timeout
     //KeepaliveProvider.interval(10); // In seconds. Execute the functions keepalive every 2 seconds
     //KeepaliveProvider.http('/keepalive/'); // URL that makes sure session is alive
 });
 
-app.config(['TitleProvider', function(TitleProvider) {
+app.config(['TitleProvider', function (TitleProvider) {
     TitleProvider.enabled(false); // it is enabled by default
 }]);
 
 
 // Global function
-app.run(function($rootScope, $http, $location, $templateCache, Idle) {
+app.run(function ($rootScope, $http, $location, $templateCache, Idle) {
     $rootScope.semaphore = 0;
     $rootScope.appErrors = null;
     $rootScope.prefixDomain = '/bdn/';
@@ -82,13 +82,13 @@ app.run(function($rootScope, $http, $location, $templateCache, Idle) {
     const showModalTime = 30; //30 seconds before the end of the timeout
 
     //Idle.watch();
-    $rootScope.$on('IdleStart', function() { //Execute after the idle time passed
+    $rootScope.$on('IdleStart', function () { //Execute after the idle time passed
         console.log("START");
         totalSecondsElapsed = ((new Date()).getTime() / 1000) - initialSeconds;
-        console.log("TIME ELAPSED: " +  totalSecondsElapsed + " FROM THE RUN OF APPLICATION: " + initialSeconds);
+        console.log("TIME ELAPSED: " + totalSecondsElapsed + " FROM THE RUN OF APPLICATION: " + initialSeconds);
     });
 
-    $rootScope.$on('IdleEnd', function() {
+    $rootScope.$on('IdleEnd', function () {
         console.log("END");
         hideModalOnly("Info");
     });
@@ -98,23 +98,23 @@ app.run(function($rootScope, $http, $location, $templateCache, Idle) {
     // });
 
     // countdown in seconds
-    $rootScope.$on('IdleWarn', function(e, countdown) {
-        if (countdown === showModalTime){
+    $rootScope.$on('IdleWarn', function (e, countdown) {
+        if (countdown === showModalTime) {
             showModalOnly("Info");
         }
     });
 
-    $rootScope.$on('IdleTimeout', function() {   //Execute after "idle time" + "timeout time"
+    $rootScope.$on('IdleTimeout', function () {   //Execute after "idle time" + "timeout time"
         hideModalOnly("Info");
         showModalOnly("Logout");
         console.log("TIMEOUT");
         // $timeout(function () {
         $http.post('logout', {})
-        .finally(function () {
-            $rootScope.authenticated = false;
-            deleteCookie("username");
-            deleteCookie("password");
-        });
+            .finally(function () {
+                $rootScope.authenticated = false;
+                deleteCookie("username");
+                deleteCookie("password");
+            });
         // }, 4000);
     });
 
@@ -170,25 +170,24 @@ app.run(function($rootScope, $http, $location, $templateCache, Idle) {
 
 
 app.filter('roundup', roundUpFilter);
-function roundUpFilter(){
+
+function roundUpFilter() {
     return function (value) {
         return Math.ceil(value);
     };
 }
 
-app.factory('$remember', function() {
+app.factory('$remember', function () {
     function fetchValue(name) {
         var gCookieVal = document.cookie.split("; ");
-        for (var i=0; i < gCookieVal.length; i++)
-        {
+        for (var i = 0; i < gCookieVal.length; i++) {
             // a name/value pair (a crumb) is separated by an equal sign
             var gCrumb = gCookieVal[i].split("=");
-            if (name === gCrumb[0])
-            {
+            if (name === gCrumb[0]) {
                 var value = '';
                 try {
                     value = angular.fromJson(gCrumb[1]);
-                } catch(e) {
+                } catch (e) {
                     value = unescape(gCrumb[1]);
                 }
                 return value;
@@ -197,15 +196,16 @@ app.factory('$remember', function() {
         // a cookie with the requested name does not exist
         return null;
     }
-    return function(name, values) {
-        if(arguments.length === 1) return fetchValue(name);
+
+    return function (name, values) {
+        if (arguments.length === 1) return fetchValue(name);
         var cookie = name + '=';
-        if(typeof values === 'object') {
+        if (typeof values === 'object') {
             var expires = '';
             cookie += (typeof values.value === 'object') ? angular.toJson(values.value) + ';' : values.value + ';';
-            if(values.expires) {
+            if (values.expires) {
                 var date = new Date();
-                date.setTime( date.getTime() + (values.expires * 24 *60 * 60 * 1000));
+                date.setTime(date.getTime() + (values.expires * 24 * 60 * 60 * 1000));
                 expires = date.toGMTString();
             }
             cookie += (!values.session) ? 'expires=' + expires + ';' : '';

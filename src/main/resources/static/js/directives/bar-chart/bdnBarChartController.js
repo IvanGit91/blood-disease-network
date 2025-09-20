@@ -1,4 +1,3 @@
-
 angular.module('bdaApplication').controller("BdnBarChartController", BdnBarChartController);
 
 function BdnBarChartController($scope, $window, $location, $http) {
@@ -27,21 +26,21 @@ function BdnBarChartController($scope, $window, $location, $http) {
 
     $scope.dataset = [{
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
-    },{
+    }, {
         label: 'Left dataset'
     }]
 
@@ -55,18 +54,22 @@ function BdnBarChartController($scope, $window, $location, $http) {
             }
         },
         scales: {
-            yAxes: [{id: 'y-axis-1', type: 'linear', position: 'left', ticks: {
-                    beginAtZero:true,
+            yAxes: [{
+                id: 'y-axis-1', type: 'linear', position: 'left', ticks: {
+                    beginAtZero: true,
                     fontColor: "white",
                     display: true
-                }}],
-            xAxes: [{ticks: {
+                }
+            }],
+            xAxes: [{
+                ticks: {
                     // fontColor: "#ffffff",
                     // maxRotation: 0,
                     // fontFamily: "sans-serif",
                     // fontSize: 14,
                     display: false,
-                }}]
+                }
+            }]
         }
     }
 }

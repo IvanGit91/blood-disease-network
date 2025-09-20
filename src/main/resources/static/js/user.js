@@ -1,4 +1,4 @@
-app.controller('userController', function($rootScope, $scope, $http, $location, $route, $routeParams, $filter, NgTableParams, $compile) {
+app.controller('userController', function ($rootScope, $scope, $http, $location, $route, $routeParams, $filter, NgTableParams, $compile) {
 
     if ($rootScope.authenticated === undefined || !$rootScope.authenticated) checkLogin($rootScope, $http, $location); else $rootScope.load = true;
 
@@ -24,8 +24,7 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
         $scope.user = {};
         $scope.selectedHospital = undefined;
         listAllHospitals(false);
-    }
-    else if ($scope.operation === 'update') {
+    } else if ($scope.operation === 'update') {
         if ($rootScope.user !== undefined) {
             $scope.add = false;
             $scope.user = $rootScope.user;
@@ -33,16 +32,14 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
         } else {
             $location.path("/user/add");
         }
-    }
-    else if ($scope.operation === 'list'){
+    } else if ($scope.operation === 'list') {
         listAllUsers();
-    }
-    else {
+    } else {
         console.log("NO OP SELECTED");
         $scope.load = false;
     }
 
-    function listAllUsers(){
+    function listAllUsers() {
         $scope.isRendered = false;
         $http({
             method: 'GET',
@@ -59,28 +56,28 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
                 dataset: $scope.users
             });
 
-        }, function(err) {
+        }, function (err) {
             console.log("Error get list all users");
             console.log(err);
         });
     }
 
 
-    function listAllHospitals(flag){
+    function listAllHospitals(flag) {
         $http({
             method: 'GET',
             url: '/bdn/hospital/'
         }).then(function successCallback(result) {
             $scope.hospitals = result.data;
             console.log(result.data);
-            if (flag){  //Trova il codice hospital
-                $scope.hospitals.forEach(function(element) {
-                    if (element.code === $scope.user.hospitalCode){
+            if (flag) {  //Find the hospital code
+                $scope.hospitals.forEach(function (element) {
+                    if (element.code === $scope.user.hospitalCode) {
                         $scope.selectedHospital = element;
                     }
                 });
             }
-        }, function(err) {
+        }, function (err) {
             console.log("Error get list all hospitals");
             console.log(err);
         });
@@ -96,7 +93,7 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
     };
 
 
-    $scope.addOrUpdateUser = function(){
+    $scope.addOrUpdateUser = function () {
         $scope.user.hospitalCode = $scope.selectedHospital.code;
         $scope.user.hospitalName = $scope.selectedHospital.name;
         console.log("User: ");
@@ -111,7 +108,7 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
                 fillModal($rootScope, "Result", "User registration completed successfully", "alert-success", "btn-success", false);
                 $location.path("/user/list");
             }, function (err) {
-                console.log("Error durante il salvataggio dell'user");
+                console.log("Error saving the user");
                 console.log(err);
                 fillModal($rootScope, "Error", err.data.message, "alert-danger", "btn-danger", true);
             });
@@ -124,22 +121,21 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
                 console.log(result.data);
                 fillModal($rootScope, "Result", "User update completed successfully", "alert-success", "btn-success", false);
                 $scope.isModUser = false;
-                //$location.path("/main");
                 $route.reload();
-            }, function(err) {
-                console.log("Error durante il salvataggio dell'user");
+            }, function (err) {
+                console.log("Error saving the user");
                 console.log(err);
                 fillModal($rootScope, "Error", err.data.message, "alert-danger", "btn-danger", true);
             });
         }
     };
 
-    $scope.modUser = function(user){
+    $scope.modUser = function (user) {
         $rootScope.user = user;
         $location.path("/user/update");
     };
 
-    $scope.deleteUser = function($event){
+    $scope.deleteUser = function ($event) {
         $rootScope.semaphore++;
         const id = $($event.target).prev().val();
         $http({
@@ -148,10 +144,9 @@ app.controller('userController', function($rootScope, $scope, $http, $location, 
         }).then(function (result) {
             console.log(result.data);
             fillModal($rootScope, "Result", "User delete completed successfully", "alert-success", "btn-success", false);
-            //$location.path("/hospital/delete");
             $rootScope.semaphore--;
             $route.reload();
-        }, function(err) {
+        }, function (err) {
             console.log("Error during deletion of the user");
             console.log(err);
             fillModal($rootScope, "Error", err.data.message, "alert-danger", "btn-danger", true);

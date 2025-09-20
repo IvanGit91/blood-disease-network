@@ -12,15 +12,17 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="hospitalName">Name</label>
-                                        <input type="text" class="app-form-control" id="hospitalName" placeholder="Enter Name" required ng-model="hospital.name">
+                                        <input class="app-form-control" id="hospitalName" ng-model="hospital.name"
+                                               placeholder="Enter Name" required type="text">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="hospitalCode">Code</label>
-                                        <input type="text" class="app-form-control" id="hospitalCode" placeholder="Enter code" required ng-model="hospital.code">
+                                        <input class="app-form-control" id="hospitalCode" ng-model="hospital.code"
+                                               placeholder="Enter code" required type="text">
                                     </div>
                                 </div>
                                 <div class="app-center">
-                                    <button type="submit" class="btn btn-primary app-btn-color">
+                                    <button class="btn btn-primary app-btn-color" type="submit">
                                         <span ng-show="add">Save Hospital</span>
                                         <span ng-show="!add">Update Hospital</span>
                                     </button>
@@ -33,7 +35,8 @@
             <div ng-show="operation === 'list'">
                 <div class="row fast-fade" ng-show="isRendered">
                     <div class="app-table-container">
-                        <table ng-table="tableParams" class="table app-table" show-filter="true" template-pagination="custom/pager">
+                        <table class="table app-table" ng-table="tableParams" show-filter="true"
+                               template-pagination="custom/pager">
                             <tr ng-repeat="row in $data">
                                 <td data-title="'Hospital Id'" filter="{id: 'text'}" sortable="'id'">
                                     {{row.id}}
@@ -46,16 +49,21 @@
                                     {{row.name}}
                                 </td>
                                 <td data-title="'Actions'" sortable="' '">
-                                    <button class="oi oi-cog app-white app-no-btn" style="margin-right: 10px;" ng-click="modHospital(row)" data-trigger="hover" data-toggle="tooltip" data-placement="top" title="Edit Hospital"></button>
-                                    <span data-trigger="hover" data-toggle="tooltip" data-placement="top" title="Delete Hospital">
+                                    <button class="oi oi-cog app-white app-no-btn" data-placement="top"
+                                            data-toggle="tooltip" data-trigger="hover" ng-click="modHospital(row)"
+                                            style="margin-right: 10px;" title="Edit Hospital"></button>
+                                    <span data-placement="top" data-toggle="tooltip" data-trigger="hover"
+                                          title="Delete Hospital">
                                         <button class="oi oi-circle-x app-white app-no-btn"
-                                              data-container="body" data-html="true" data-toggle="popover" data-placement="left"
-                                              popover
-                                              data-trigger="focus" title="Are you sure you want to delete the hospital: {{row.name}}?"
-                                              data-content="<div class='app-center'>
+                                                data-container="body" data-content="<div class='app-center'>
                                                                <input type='hidden' value='{{row.id}}'>
                                                                <button ng-click='deleteHospital($event)' class='btn btn-danger navbar-btn' role='button'>Delete</button>
-                                                            </div>"></button>
+                                                            </div>" data-html="true"
+                                                data-placement="left"
+                                                data-toggle="popover"
+                                                data-trigger="focus"
+                                                popover
+                                                title="Are you sure you want to delete the hospital: {{row.name}}?"></button>
                                     </span>
                                 </td>
                             </tr>
@@ -68,12 +76,13 @@
 </div>
 
 
-<script type="text/ng-template" id="custom/pager">
+<script id="custom/pager" type="text/ng-template">
     <div class="app-table-showing app-center">
         <span>Showing {{params.page()}} to {{(params.total() / params.count()) | roundup}} of {{params.total()}} entries</span>
     </div>
     <div class="ng-cloak ng-table-pager" ng-if="params.data.length" style="display: flow-root;">
-        <div ng-if="params.settings().counts.length" class="ng-table-counts btn-group pull-right" style="margin-bottom: 24px">
+        <div ng-if="params.settings().counts.length" class="ng-table-counts btn-group pull-right"
+             style="margin-bottom: 24px">
             <button ng-repeat="count in params.settings().counts" type="button"
                     ng-class="{'active':params.count() == count}"
                     ng-click="params.count(count)" class="btn btn-default">
@@ -81,12 +90,16 @@
             </button>
         </div>
         <ul ng-if="pages.length" class="pagination ng-table-pagination">
-            <li class="page-item" ng-class="{'disabled': !page.active && !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type">
+            <li class="page-item" ng-class="{'disabled': !page.active && !page.current, 'active': page.current}"
+                ng-repeat="page in pages" ng-switch="page.type">
                 <a class="page-link" ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo;</a>
-                <a class="page-link" ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
-                <a class="page-link" ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+                <a class="page-link" ng-switch-when="first" ng-click="params.page(page.number)" href=""><span
+                        ng-bind="page.number"></span></a>
+                <a class="page-link" ng-switch-when="page" ng-click="params.page(page.number)" href=""><span
+                        ng-bind="page.number"></span></a>
                 <a class="page-link" ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a>
-                <a class="page-link" ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+                <a class="page-link" ng-switch-when="last" ng-click="params.page(page.number)" href=""><span
+                        ng-bind="page.number"></span></a>
                 <a class="page-link" ng-switch-when="next" ng-click="params.page(page.number)" href="">&raquo;</a>
             </li>
         </ul>
